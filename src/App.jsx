@@ -1,7 +1,12 @@
 import "./App.css";
+import BookContainer from "./components/BookContainer";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <BookContainer />
+    </>
+  );
 }
 
 export default App;
