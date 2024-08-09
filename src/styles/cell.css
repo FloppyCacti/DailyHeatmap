@@ -1,13 +1,14 @@
 .cellContainer {
-  width: 100%;
   height: 200px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 5px;
+  width: calc((20px + 5px) * 52);
 }
 
 .cell {
+  box-sizing: border-box;
   width: 20px;
   height: 20px;
   background-color: lightgrey;
