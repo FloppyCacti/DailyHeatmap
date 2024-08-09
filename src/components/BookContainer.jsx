@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import "../styles/cell.css";
+import "../styles/bookContainer.css";
 
 function BookContainer() {
   const [cellContainer, setCellContainer] = useState([]);
+  const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
   function cellInfoObj(Date) {
     return { bookName: null, Date, PageStarted: null, PageEnded: null };
@@ -24,18 +25,28 @@ function BookContainer() {
   function logInfo(index) {
     console.log(cellContainer[index]);
   }
+
   return (
     <>
-      <div className="cellContainer" id="bookContainer">
-        {cellContainer.map((day, dayIndex) => (
-          <div
-            key={`${dayIndex}`}
-            className="cell"
-            onClick={() => {
-              logInfo(dayIndex);
-            }}
-          ></div>
-        ))}
+      <div className="containerWrapper">
+        <div className="daysOfWeek">
+          {dayOfWeek.map((day, index) => (
+            <div key={index} className="dayLabel">
+              {day}
+            </div>
+          ))}
+        </div>
+        <div className="cellContainer">
+          {cellContainer.map((cell, cellIndex) => (
+            <div
+              key={cellIndex}
+              className="cell"
+              onClick={() => {
+                logInfo(cellIndex);
+              }}
+            ></div>
+          ))}
+        </div>
       </div>
     </>
   );
